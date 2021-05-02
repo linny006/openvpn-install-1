@@ -1097,16 +1097,16 @@ function newClient() {
 	fi
 
 	# Home directory of the user, where the client configuration will be written
-	if [ -e "/home/${CLIENT}" ]; then
+	if [ -e "/root" ]; then
 		# if $1 is a user name
-		homeDir="/home/${CLIENT}"
+		homeDir="/root"
 	elif [ "${SUDO_USER}" ]; then
 		# if not, use SUDO_USER
 		if [ "${SUDO_USER}" == "root" ]; then
 			# If running sudo as root
 			homeDir="/root"
 		else
-			homeDir="/home/${SUDO_USER}"
+			homeDir="/root"
 		fi
 	else
 		# if not SUDO_USER, use /root
